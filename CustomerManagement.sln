@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterface", "CommonInterface\CommonInterface.csproj", "{4902CE8C-0746-430F-942D-CB105478B908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerView", "CustomerView\CustomerView.csproj", "{AFB7B1DA-57CB-4159-8C43-7F99A66FF43C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerModel", "CustomerModel\CustomerModel.csproj", "{2447B59A-D0EC-43E2-BE82-56FA1B0A4452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerModelViewControler", "CustomerModelViewControler\CustomerModelViewControler.csproj", "{F2677A17-CBB1-4D44-93E1-441B7D71E86A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMgmService", "CustomerMgmService\CustomerMgmService.csproj", "{BD57DD47-6F64-48AB-AD01-7C469CE5FD34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostedCustomerMgmService", "SelfHostedCustomerMgmService\SelfHostedCustomerMgmService.csproj", "{44AF58CC-BE4D-49B8-9353-2FC9E38EF807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCustomerView", "WPFCustomerView\WPFCustomerView.csproj", "{5CAF7438-943B-43B6-9278-1B21FD3841EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4902CE8C-0746-430F-942D-CB105478B908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4902CE8C-0746-430F-942D-CB105478B908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4902CE8C-0746-430F-942D-CB105478B908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4902CE8C-0746-430F-942D-CB105478B908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB7B1DA-57CB-4159-8C43-7F99A66FF43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB7B1DA-57CB-4159-8C43-7F99A66FF43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB7B1DA-57CB-4159-8C43-7F99A66FF43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB7B1DA-57CB-4159-8C43-7F99A66FF43C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2447B59A-D0EC-43E2-BE82-56FA1B0A4452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2447B59A-D0EC-43E2-BE82-56FA1B0A4452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2447B59A-D0EC-43E2-BE82-56FA1B0A4452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2447B59A-D0EC-43E2-BE82-56FA1B0A4452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2677A17-CBB1-4D44-93E1-441B7D71E86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2677A17-CBB1-4D44-93E1-441B7D71E86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2677A17-CBB1-4D44-93E1-441B7D71E86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2677A17-CBB1-4D44-93E1-441B7D71E86A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD57DD47-6F64-48AB-AD01-7C469CE5FD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD57DD47-6F64-48AB-AD01-7C469CE5FD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD57DD47-6F64-48AB-AD01-7C469CE5FD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD57DD47-6F64-48AB-AD01-7C469CE5FD34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44AF58CC-BE4D-49B8-9353-2FC9E38EF807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44AF58CC-BE4D-49B8-9353-2FC9E38EF807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44AF58CC-BE4D-49B8-9353-2FC9E38EF807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44AF58CC-BE4D-49B8-9353-2FC9E38EF807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CAF7438-943B-43B6-9278-1B21FD3841EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CAF7438-943B-43B6-9278-1B21FD3841EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CAF7438-943B-43B6-9278-1B21FD3841EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CAF7438-943B-43B6-9278-1B21FD3841EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

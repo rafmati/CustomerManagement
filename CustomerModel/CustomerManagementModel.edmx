@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CustomerManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Salt" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalNum" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TotalDebt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <Function Name="usp_AddCMUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUserName" Type="varchar" Mode="In" />
+          <Parameter Name="pUserPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AddCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pPersonalNum" Type="varchar" Mode="In" />
+          <Parameter Name="pName" Type="varchar" Mode="In" />
+          <Parameter Name="pLastName" Type="varchar" Mode="In" />
+          <Parameter Name="pTotalDebt" Type="decimal" Mode="In" />
+          <Parameter Name="pNote" Type="text" Mode="In" />
+        </Function>
+        <Function Name="usp_AllCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_CMLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUserName" Type="varchar" Mode="In" />
+          <Parameter Name="pUserPassword" Type="varchar" Mode="In" />
+          <Parameter Name="pResult" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="pPersonalNum" Type="varchar" Mode="In" />
+          <Parameter Name="pName" Type="varchar" Mode="In" />
+          <Parameter Name="pLastName" Type="varchar" Mode="In" />
+          <Parameter Name="pTotalDebt" Type="decimal" Mode="In" />
+          <Parameter Name="pNote" Type="text" Mode="In" />
+        </Function>
+        <EntityContainer Name="CustomerManagementModelStoreContainer">
+          <EntitySet Name="CMUser" EntityType="Self.CMUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CustomerManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CMUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalNum" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalDebt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CustomerManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CMUser" EntityType="Self.CMUser" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <FunctionImport Name="usp_AddCMUser">
+            <Parameter Name="pUserName" Mode="In" Type="String" />
+            <Parameter Name="pUserPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AddCustomer">
+            <Parameter Name="pPersonalNum" Mode="In" Type="String" />
+            <Parameter Name="pName" Mode="In" Type="String" />
+            <Parameter Name="pLastName" Mode="In" Type="String" />
+            <Parameter Name="pTotalDebt" Mode="In" Type="Decimal" />
+            <Parameter Name="pNote" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AllCustomers" ReturnType="Collection(CustomerManagementModel.usp_AllCustomers_Result)" />
+          <FunctionImport Name="usp_CMLogin">
+            <Parameter Name="pUserName" Mode="In" Type="String" />
+            <Parameter Name="pUserPassword" Mode="In" Type="String" />
+            <Parameter Name="pResult" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DeleteCustomer">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateCustomer">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="pPersonalNum" Mode="In" Type="String" />
+            <Parameter Name="pName" Mode="In" Type="String" />
+            <Parameter Name="pLastName" Mode="In" Type="String" />
+            <Parameter Name="pTotalDebt" Mode="In" Type="Decimal" />
+            <Parameter Name="pNote" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_AllCustomers_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PersonalNum" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="TotalDebt" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="Note" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CustomerManagementModelStoreContainer" CdmEntityContainer="CustomerManagementEntities">
+          <EntitySetMapping Name="CMUser">
+            <EntityTypeMapping TypeName="CustomerManagementModel.CMUser">
+              <MappingFragment StoreEntitySet="CMUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="CustomerManagementModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonalNum" ColumnName="PersonalNum" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TotalDebt" ColumnName="TotalDebt" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_AddCMUser" FunctionName="CustomerManagementModel.Store.usp_AddCMUser" />
+          <FunctionImportMapping FunctionImportName="usp_AddCustomer" FunctionName="CustomerManagementModel.Store.usp_AddCustomer" />
+          <FunctionImportMapping FunctionImportName="usp_AllCustomers" FunctionName="CustomerManagementModel.Store.usp_AllCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CustomerManagementModel.usp_AllCustomers_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonalNum" ColumnName="PersonalNum" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TotalDebt" ColumnName="TotalDebt" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CMLogin" FunctionName="CustomerManagementModel.Store.usp_CMLogin" />
+          <FunctionImportMapping FunctionImportName="usp_DeleteCustomer" FunctionName="CustomerManagementModel.Store.usp_DeleteCustomer" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateCustomer" FunctionName="CustomerManagementModel.Store.usp_UpdateCustomer" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

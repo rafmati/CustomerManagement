@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPFCustomerView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:src="clr-namespace:WPFCustomerView"
+        xmlns:cmvc="clr-namespace:CustomerModelViewControler;assembly=CustomerModelViewControler"
+        Title="MainWindow" Height="595" Width="810">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="DataProvider" ObjectType="{x:Type cmvc:ControlerFactory}">
+            <ObjectDataProvider.MethodName>GetControler</ObjectDataProvider.MethodName>            
+            <ObjectDataProvider.MethodParameters>
+                <cmvc:AvailableControler>DBAccess</cmvc:AvailableControler>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid x:Name="MainGrid">
+        <Button Content="Login" HorizontalAlignment="Left" Margin="224,16,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Mode=OneWay, Source={StaticResource DataProvider}, XPath=UserLoginCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="UserName" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Personal Num" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="LastName" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="99,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Total Debt" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="CustomerDataGrid" Margin="10,266,10,10" ItemsSource="{Binding Source={StaticResource DataProvider}, Path=LastUpdate}"/>
+        <Label Content="Note" HorizontalAlignment="Left" Margin="326,76,0,0" VerticalAlignment="Top"/>
+        <RichTextBox Height="158" Margin="326,103,10,0" VerticalAlignment="Top">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="New" HorizontalAlignment="Left" Margin="224,109,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="224,138,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Mode=OneWay, Source={StaticResource DataProvider}, XPath=AddCommand}"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="224,167,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="224,195,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Mode=OneWay, Source={StaticResource DataProvider}, XPath=RefreshCommand}"/>
+    </Grid>
+</Window>
